@@ -49,13 +49,23 @@ public class Employee {
 	@Override
 	public String toString() {
 		// return the name of the employee
-		return this.name;
+//		return getClass().getName(); // this would print lab02.Employee or lab02.Manager , which is it's full class name
+		return getName();
 	}
-	
-	public boolean equals(Employee obj) {
-		System.out.println(this.name + obj.name + " is " + (this.name == obj.name));
-		
-		// name and salary must be equal
-		return this.name == obj.name && this.salary == obj.salary ;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			// the address is the same
+			return true;
+		}
+		if (obj instanceof Employee) {
+			// force to change type
+			Employee that_obj = (Employee) obj;
+			
+			// name and salary must be equal
+			return this.name == that_obj.name && this.salary == that_obj.salary ;
+			
+		}
+		return false;
 	}
 }
