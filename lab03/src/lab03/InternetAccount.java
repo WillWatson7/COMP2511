@@ -25,7 +25,7 @@ public class InternetAccount extends BankAccount {
 	 */
 	@Override
 	public boolean withdraw(int amount) {
-		if (this.today_withdrawals_count >= this.internet_withdrawal_limits) 
+		if (getToday_withdrawals_count() >= this.internet_withdrawal_limits) 
 			// couldn't Perform this transaction
 			return false;
 		// add a count for this transaction

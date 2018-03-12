@@ -42,6 +42,7 @@ public class BankAccount {
 	 * Withdraw the amount by the checking the limits
 	 */
 	public boolean withdraw(int amount) {
+		if(amount <0 ) return false;
 		if (amount+this.today_withdrawal > this.getWithdrawal_limit() || amount > this.balance) {
 			// Couldn't Process this transaction
 			return false;
@@ -55,6 +56,8 @@ public class BankAccount {
 	
 	// add some money to the account 
 	public boolean deposit(int amount) {
+		// couldn't enter a negetive value
+		if(amount <0 ) return false;
 		
 		this.balance += amount;
 		return true;
